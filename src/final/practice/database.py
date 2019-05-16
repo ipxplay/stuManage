@@ -23,16 +23,21 @@ def sqlite3Connect(dbfile=config.dbfile):
 def sqlite3CreateTable():
     conn = sqlite3Connect()
     cursor = conn.cursor()
-    cursor.execute("create table userinfo (username varchar(20),passwd varchar(20)) ")
-    cursor.close()
-    conn.close()
+    try:
+        cursor.execute("create table userinfo (username text,passwd text) ")
+    except:
+        pass
+    finally:
+        cursor.close()
+        conn.close()
     
 def sqlite3SaveData(username="admin",passwd="admin"):
     conn = sqlite3Connect()
     cursor = conn.cursor()
-    sql = "insert into userinfo (username,passwd) values (\"admin\",\"admin\")"
-#     sql = sql.format(username,passwd)
+    sql = "insert into userinfo (username,passwd) values (\'{0}\',\'{1}\')"
+    sql = sql.format(username,passwd)
     cursor.execute(sql)
+    conn.commit()
     cursor.close()
     conn.close()
     
@@ -41,8 +46,8 @@ def sqlite3GetData():
     cursor = conn.cursor()
     cursor.execute("select * from userinfo")
     data = cursor.fetchall()
-    cursor.close()
-    conn.close()
+#   cursor.close()
+#     conn.close()
     return data
     
     
@@ -54,6 +59,6 @@ if __name__=="__main__":
 #     data= "wxit3,wxit3"
 #     saveData(data)
 #     print(getData())
-#     sqlite3CreateTable()
-    sqlite3SaveData()
+    sqlite3CreateTable()
+    sqlite3SaveData("wxit","wxit")
     print(sqlite3GetData())
