@@ -3,6 +3,7 @@ from aiohttp import web
 from SimpleWebServer.web.myjinja import html
 from urllib.parse import parse_qs
 from SimpleWebServer.util.txtutil import checkUserAndPwd
+from SimpleWebServer.web.model.model import Model
 
 async def check(info):
 #     print(parse_qs(info.query_string))
@@ -13,7 +14,9 @@ async def check(info):
 #         msg = "success!"
 #     else:
 #         pass
-    if checkUserAndPwd(username, password):
+    model = Model()
+#     if checkUserAndPwd(username, password):
+    if model.checkUserSAndpwd(username, password):
         msg = "success!"
     else:
         pass
@@ -23,7 +26,7 @@ async def check(info):
 
 async def index(request):
     data=""
-    with open("./views/login.html",encoding="utf-8") as f:
+    with open("../views/login.html",encoding="utf-8") as f:
         data = f.read()
     data1 = web.Response(body=data,content_type="text/html")
     return data1
@@ -34,7 +37,7 @@ async def init(loop):
     app.router.add_route('GET', '/check', check)
     runner = web.AppRunner(app)
     await runner.setup()
-    site = web.TCPSite(runner,"10.35.53.100","9000")
+    site = web.TCPSite(runner=runner,port=9000)
     await site.start()
 
 loop = asyncio.get_event_loop()
