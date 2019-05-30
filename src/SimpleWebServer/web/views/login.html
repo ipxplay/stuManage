@@ -1,0 +1,25 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="utf-8"></meta>
+	<title>Login</title>
+</head>
+<body align="center">
+	<form method="get" action="/check" >
+		<input type="text" name="username" />
+		<br><br>
+		<input type="password" name="password" />
+		<br><br>
+		<input type="submit" value="提交"/>
+	</form>
+	<hr>
+	<table border="1px solid">
+		{% for td in tds  %}
+		<tr>
+			<td>{{ td[0] | upper }}</td>
+			<td>{{ td[1] | upper }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+</body>
+</html>
