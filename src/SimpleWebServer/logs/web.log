@@ -1,0 +1,343 @@
+10.35.10.10  /check - 2019-06-04 11:04:15,153
+10.35.10.10 /check - 2019-06-04 11:05:30,834
+10.10.10.10 /check - 2019-06-04 11:29:01,983
+  - 2019-06-04 11:32:53,655
+  - 2019-06-04 11:35:47,985
+10.35.53.100 [04/Jun/2019:03:35:59 +0000] "GET / HTTP/1.1" 200 613 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36" - 2019-06-04 11:35:59,731
+10.35.53.100 [04/Jun/2019:03:36:43 +0000] "GET /kill HTTP/1.1" 404 172 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36" - 2019-06-04 11:36:43,671
+10.35.53.100 [04/Jun/2019:03:36:55 +0000] "GET /kill HTTP/1.1" 404 172 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36" - 2019-06-04 11:36:55,959
+10.35.53.100 [04/Jun/2019:03:36:56 +0000] "GET /kill HTTP/1.1" 404 172 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36" - 2019-06-04 11:36:56,983
+10.35.53.100 [04/Jun/2019:03:36:57 +0000] "GET /kill HTTP/1.1" 404 172 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36" - 2019-06-04 11:36:57,172
+10.35.53.100 [04/Jun/2019:03:37:16 +0000] "GET / HTTP/1.1" 200 613 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36" - 2019-06-04 11:37:16,839
+10.35.53.100 [04/Jun/2019:03:37:18 +0000] "GET / HTTP/1.1" 200 613 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36" - 2019-06-04 11:37:18,496
+Error handling request - 2019-06-04 11:37:34,831
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\aiohttp\web_protocol.py", line 418, in start
+    resp = await task
+  File "C:\Python35\lib\asyncio\futures.py", line 381, in __iter__
+    yield self  # This tells Task to wait for completion.
+  File "C:\Python35\lib\asyncio\tasks.py", line 310, in _wakeup
+    future.result()
+  File "C:\Python35\lib\asyncio\futures.py", line 294, in result
+    raise self._exception
+  File "C:\Python35\lib\asyncio\tasks.py", line 240, in _step
+    result = coro.send(None)
+  File "C:\Python35\lib\site-packages\aiohttp\web_app.py", line 458, in _handle
+    resp = await handler(request)
+  File "E:\ww\stuManage\stuManage\src\SimpleWebServer\web\controller\web.py", line 11, in check
+    username = parse_qs(info.query_string)["username"][0]
+KeyError: 'username'
+10.35.53.100 [04/Jun/2019:03:37:34 +0000] "GET /check HTTP/1.1" 500 334 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36" - 2019-06-04 11:37:34,842
+Error handling request - 2019-06-04 11:37:51,496
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\aiohttp\web_protocol.py", line 418, in start
+    resp = await task
+  File "C:\Python35\lib\asyncio\futures.py", line 381, in __iter__
+    yield self  # This tells Task to wait for completion.
+  File "C:\Python35\lib\asyncio\tasks.py", line 310, in _wakeup
+    future.result()
+  File "C:\Python35\lib\asyncio\futures.py", line 294, in result
+    raise self._exception
+  File "C:\Python35\lib\asyncio\tasks.py", line 240, in _step
+    result = coro.send(None)
+  File "C:\Python35\lib\site-packages\aiohttp\web_app.py", line 458, in _handle
+    resp = await handler(request)
+  File "E:\ww\stuManage\stuManage\src\SimpleWebServer\web\controller\web.py", line 20, in check
+    if model.checkUserSAndpwd(username, password):
+  File "E:\ww\stuManage\stuManage\src\SimpleWebServer\web\model\model.py", line 28, in checkUserSAndpwd
+    userinfos =  self.getAllUserInfo()
+  File "E:\ww\stuManage\stuManage\src\SimpleWebServer\web\model\model.py", line 22, in getAllUserInfo
+    self.cursor.execute(sql)
+sqlite3.OperationalError: no such table: userinfo
+10.35.53.100 [04/Jun/2019:03:37:51 +0000] "GET /check?username=sfasdf&password=sadfasdfasd HTTP/1.1" 500 334 "http://10.35.53.100:9000/" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36" - 2019-06-04 11:37:51,497
+Error handling request - 2019-06-04 11:38:14,854
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\aiohttp\web_protocol.py", line 418, in start
+    resp = await task
+  File "C:\Python35\lib\asyncio\futures.py", line 381, in __iter__
+    yield self  # This tells Task to wait for completion.
+  File "C:\Python35\lib\asyncio\tasks.py", line 310, in _wakeup
+    future.result()
+  File "C:\Python35\lib\asyncio\futures.py", line 294, in result
+    raise self._exception
+  File "C:\Python35\lib\asyncio\tasks.py", line 240, in _step
+    result = coro.send(None)
+  File "C:\Python35\lib\site-packages\aiohttp\web_app.py", line 458, in _handle
+    resp = await handler(request)
+  File "E:\ww\stuManage\stuManage\src\SimpleWebServer\web\controller\web.py", line 20, in check
+    if model.checkUserSAndpwd(username, password):
+  File "E:\ww\stuManage\stuManage\src\SimpleWebServer\web\model\model.py", line 28, in checkUserSAndpwd
+    userinfos =  self.getAllUserInfo()
+  File "E:\ww\stuManage\stuManage\src\SimpleWebServer\web\model\model.py", line 22, in getAllUserInfo
+    self.cursor.execute(sql)
+sqlite3.OperationalError: no such table: userinfo
+10.35.53.100 [04/Jun/2019:03:38:14 +0000] "GET /check?username=1&password=2 HTTP/1.1" 500 334 "http://10.35.53.100:9000/" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36" - 2019-06-04 11:38:14,856
+  - 2019-06-04 11:40:01,791
+10.35.53.100 [04/Jun/2019:03:40:08 +0000] "GET / HTTP/1.1" 200 613 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36" - 2019-06-04 11:40:08,746
+  - 2019-06-04 11:40:53,205
+10.35.53.100 [04/Jun/2019:03:40:59 +0000] "GET / HTTP/1.1" 200 613 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36" - 2019-06-04 11:40:59,939
+10.35.53.100 [04/Jun/2019:03:41:15 +0000] "GET / HTTP/1.1" 200 613 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36" - 2019-06-04 11:41:15,590
+  - 2019-06-04 11:41:52,559
+10.35.53.100 [04/Jun/2019:03:41:56 +0000] "GET / HTTP/1.1" 200 613 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36" - 2019-06-04 11:41:56,092
+  - 2019-06-04 11:43:31,676
+10.35.53.100 [04/Jun/2019:03:43:34 +0000] "GET / HTTP/1.1" 200 613 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36" - 2019-06-04 11:43:34,466
+Error handling request - 2019-06-04 11:48:49,326
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\aiohttp\web_protocol.py", line 418, in start
+    resp = await task
+  File "C:\Python35\lib\asyncio\futures.py", line 381, in __iter__
+    yield self  # This tells Task to wait for completion.
+  File "C:\Python35\lib\asyncio\tasks.py", line 310, in _wakeup
+    future.result()
+  File "C:\Python35\lib\asyncio\futures.py", line 294, in result
+    raise self._exception
+  File "C:\Python35\lib\asyncio\tasks.py", line 240, in _step
+    result = coro.send(None)
+  File "C:\Python35\lib\site-packages\aiohttp\web_app.py", line 458, in _handle
+    resp = await handler(request)
+  File "E:\ww\stuManage\stuManage\src\SimpleWebServer\web\controller\web.py", line 34, in index
+    weblog(logfile,ip, path)
+  File "E:\ww\stuManage\stuManage\src\SimpleWebServer\util\weblogging.py", line 9, in weblog
+    msg = ip + " "+path
+TypeError: Can't convert 'URL' object to str implicitly
+10.35.53.100 [04/Jun/2019:03:48:49 +0000] "GET / HTTP/1.1" 500 334 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36" - 2019-06-04 11:48:49,343
+Error handling request - 2019-06-04 11:48:57,394
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\aiohttp\web_protocol.py", line 418, in start
+    resp = await task
+  File "C:\Python35\lib\asyncio\futures.py", line 381, in __iter__
+    yield self  # This tells Task to wait for completion.
+  File "C:\Python35\lib\asyncio\tasks.py", line 310, in _wakeup
+    future.result()
+  File "C:\Python35\lib\asyncio\futures.py", line 294, in result
+    raise self._exception
+  File "C:\Python35\lib\asyncio\tasks.py", line 240, in _step
+    result = coro.send(None)
+  File "C:\Python35\lib\site-packages\aiohttp\web_app.py", line 458, in _handle
+    resp = await handler(request)
+  File "E:\ww\stuManage\stuManage\src\SimpleWebServer\web\controller\web.py", line 34, in index
+    weblog(logfile,ip, path)
+  File "E:\ww\stuManage\stuManage\src\SimpleWebServer\util\weblogging.py", line 9, in weblog
+    msg = ip + " "+path
+TypeError: Can't convert 'URL' object to str implicitly
+10.35.53.100 [04/Jun/2019:03:48:57 +0000] "GET / HTTP/1.1" 500 334 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36" - 2019-06-04 11:48:57,400
+Error handling request - 2019-06-04 11:51:49,650
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\aiohttp\web_protocol.py", line 418, in start
+    resp = await task
+  File "C:\Python35\lib\asyncio\futures.py", line 381, in __iter__
+    yield self  # This tells Task to wait for completion.
+  File "C:\Python35\lib\asyncio\tasks.py", line 310, in _wakeup
+    future.result()
+  File "C:\Python35\lib\asyncio\futures.py", line 294, in result
+    raise self._exception
+  File "C:\Python35\lib\asyncio\tasks.py", line 240, in _step
+    result = coro.send(None)
+  File "C:\Python35\lib\site-packages\aiohttp\web_app.py", line 458, in _handle
+    resp = await handler(request)
+  File "E:\ww\stuManage\stuManage\src\SimpleWebServer\web\controller\web.py", line 34, in index
+    weblog(logfile,ip, path)
+  File "E:\ww\stuManage\stuManage\src\SimpleWebServer\util\weblogging.py", line 9, in weblog
+    msg = ip + " "+path
+TypeError: Can't convert 'URL' object to str implicitly
+10.35.53.100 [04/Jun/2019:03:50:01 +0000] "GET / HTTP/1.1" 500 334 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36" - 2019-06-04 11:51:49,666
+Error handling request - 2019-06-04 11:52:21,143
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\aiohttp\web_protocol.py", line 418, in start
+    resp = await task
+  File "C:\Python35\lib\asyncio\futures.py", line 381, in __iter__
+    yield self  # This tells Task to wait for completion.
+  File "C:\Python35\lib\asyncio\tasks.py", line 310, in _wakeup
+    future.result()
+  File "C:\Python35\lib\asyncio\futures.py", line 294, in result
+    raise self._exception
+  File "C:\Python35\lib\asyncio\tasks.py", line 240, in _step
+    result = coro.send(None)
+  File "C:\Python35\lib\site-packages\aiohttp\web_app.py", line 458, in _handle
+    resp = await handler(request)
+  File "E:\ww\stuManage\stuManage\src\SimpleWebServer\web\controller\web.py", line 34, in index
+    weblog(logfile,ip, path)
+  File "E:\ww\stuManage\stuManage\src\SimpleWebServer\util\weblogging.py", line 9, in weblog
+    msg = ip + " "+path
+TypeError: Can't convert 'URL' object to str implicitly
+10.35.53.100 [04/Jun/2019:03:52:21 +0000] "GET / HTTP/1.1" 500 334 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36" - 2019-06-04 11:52:21,151
+Error handling request - 2019-06-04 11:52:24,704
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\aiohttp\web_protocol.py", line 418, in start
+    resp = await task
+  File "C:\Python35\lib\asyncio\futures.py", line 381, in __iter__
+    yield self  # This tells Task to wait for completion.
+  File "C:\Python35\lib\asyncio\tasks.py", line 310, in _wakeup
+    future.result()
+  File "C:\Python35\lib\asyncio\futures.py", line 294, in result
+    raise self._exception
+  File "C:\Python35\lib\asyncio\tasks.py", line 240, in _step
+    result = coro.send(None)
+  File "C:\Python35\lib\site-packages\aiohttp\web_app.py", line 458, in _handle
+    resp = await handler(request)
+  File "E:\ww\stuManage\stuManage\src\SimpleWebServer\web\controller\web.py", line 34, in index
+    weblog(logfile,ip, path)
+  File "E:\ww\stuManage\stuManage\src\SimpleWebServer\util\weblogging.py", line 9, in weblog
+    msg = ip + " "+path
+TypeError: Can't convert 'URL' object to str implicitly
+10.35.53.100 [04/Jun/2019:03:52:24 +0000] "GET / HTTP/1.1" 500 334 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36" - 2019-06-04 11:52:24,706
+Error handling request - 2019-06-04 11:52:36,581
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\aiohttp\web_protocol.py", line 418, in start
+    resp = await task
+  File "C:\Python35\lib\asyncio\futures.py", line 381, in __iter__
+    yield self  # This tells Task to wait for completion.
+  File "C:\Python35\lib\asyncio\tasks.py", line 310, in _wakeup
+    future.result()
+  File "C:\Python35\lib\asyncio\futures.py", line 294, in result
+    raise self._exception
+  File "C:\Python35\lib\asyncio\tasks.py", line 240, in _step
+    result = coro.send(None)
+  File "C:\Python35\lib\site-packages\aiohttp\web_app.py", line 458, in _handle
+    resp = await handler(request)
+  File "E:\ww\stuManage\stuManage\src\SimpleWebServer\web\controller\web.py", line 34, in index
+    weblog(logfile,ip, path)
+  File "E:\ww\stuManage\stuManage\src\SimpleWebServer\util\weblogging.py", line 9, in weblog
+    msg = ip + " "+path
+TypeError: Can't convert 'URL' object to str implicitly
+10.35.53.100 [04/Jun/2019:03:52:36 +0000] "GET / HTTP/1.1" 500 334 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36" - 2019-06-04 11:52:36,586
+Error handling request - 2019-06-04 11:52:43,806
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\aiohttp\web_protocol.py", line 418, in start
+    resp = await task
+  File "C:\Python35\lib\asyncio\futures.py", line 381, in __iter__
+    yield self  # This tells Task to wait for completion.
+  File "C:\Python35\lib\asyncio\tasks.py", line 310, in _wakeup
+    future.result()
+  File "C:\Python35\lib\asyncio\futures.py", line 294, in result
+    raise self._exception
+  File "C:\Python35\lib\asyncio\tasks.py", line 240, in _step
+    result = coro.send(None)
+  File "C:\Python35\lib\site-packages\aiohttp\web_app.py", line 458, in _handle
+    resp = await handler(request)
+  File "E:\ww\stuManage\stuManage\src\SimpleWebServer\web\controller\web.py", line 34, in index
+    weblog(logfile,ip, path)
+  File "E:\ww\stuManage\stuManage\src\SimpleWebServer\util\weblogging.py", line 9, in weblog
+    msg = ip + " "+path
+TypeError: Can't convert 'URL' object to str implicitly
+10.35.53.100 [04/Jun/2019:03:52:43 +0000] "GET / HTTP/1.1" 500 334 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36" - 2019-06-04 11:52:43,808
+Error handling request - 2019-06-04 11:52:56,358
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\aiohttp\web_protocol.py", line 418, in start
+    resp = await task
+  File "C:\Python35\lib\asyncio\futures.py", line 381, in __iter__
+    yield self  # This tells Task to wait for completion.
+  File "C:\Python35\lib\asyncio\tasks.py", line 310, in _wakeup
+    future.result()
+  File "C:\Python35\lib\asyncio\futures.py", line 294, in result
+    raise self._exception
+  File "C:\Python35\lib\asyncio\tasks.py", line 240, in _step
+    result = coro.send(None)
+  File "C:\Python35\lib\site-packages\aiohttp\web_app.py", line 458, in _handle
+    resp = await handler(request)
+  File "E:\ww\stuManage\stuManage\src\SimpleWebServer\web\controller\web.py", line 34, in index
+    weblog(logfile,ip, path)
+  File "E:\ww\stuManage\stuManage\src\SimpleWebServer\util\weblogging.py", line 9, in weblog
+    msg = ip + " "+path
+TypeError: Can't convert 'URL' object to str implicitly
+10.35.53.100 [04/Jun/2019:03:52:56 +0000] "GET / HTTP/1.1" 500 334 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36" - 2019-06-04 11:52:56,365
+Error handling request - 2019-06-04 11:52:58,635
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\aiohttp\web_protocol.py", line 418, in start
+    resp = await task
+  File "C:\Python35\lib\asyncio\futures.py", line 381, in __iter__
+    yield self  # This tells Task to wait for completion.
+  File "C:\Python35\lib\asyncio\tasks.py", line 310, in _wakeup
+    future.result()
+  File "C:\Python35\lib\asyncio\futures.py", line 294, in result
+    raise self._exception
+  File "C:\Python35\lib\asyncio\tasks.py", line 240, in _step
+    result = coro.send(None)
+  File "C:\Python35\lib\site-packages\aiohttp\web_app.py", line 458, in _handle
+    resp = await handler(request)
+  File "E:\ww\stuManage\stuManage\src\SimpleWebServer\web\controller\web.py", line 34, in index
+    weblog(logfile,ip, path)
+  File "E:\ww\stuManage\stuManage\src\SimpleWebServer\util\weblogging.py", line 9, in weblog
+    msg = ip + " "+path
+TypeError: Can't convert 'URL' object to str implicitly
+10.35.53.100 [04/Jun/2019:03:52:58 +0000] "GET / HTTP/1.1" 500 334 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36" - 2019-06-04 11:52:58,637
+Error handling request - 2019-06-04 11:54:29,117
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\aiohttp\web_protocol.py", line 418, in start
+    resp = await task
+  File "C:\Python35\lib\asyncio\futures.py", line 381, in __iter__
+    yield self  # This tells Task to wait for completion.
+  File "C:\Python35\lib\asyncio\tasks.py", line 310, in _wakeup
+    future.result()
+  File "C:\Python35\lib\asyncio\futures.py", line 294, in result
+    raise self._exception
+  File "C:\Python35\lib\asyncio\tasks.py", line 240, in _step
+    result = coro.send(None)
+  File "C:\Python35\lib\site-packages\aiohttp\web_app.py", line 458, in _handle
+    resp = await handler(request)
+  File "E:\ww\stuManage\stuManage\src\SimpleWebServer\web\controller\web.py", line 38, in index
+    weblog(logfile,ip, path)
+  File "E:\ww\stuManage\stuManage\src\SimpleWebServer\web\controller\web.py", line 29, in weblog
+    msg = ip + " "+path
+TypeError: Can't convert 'URL' object to str implicitly
+10.35.53.100 [04/Jun/2019:03:54:29 +0000] "GET / HTTP/1.1" 500 334 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36" - 2019-06-04 11:54:29,122
+Error handling request - 2019-06-04 11:54:49,461
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\aiohttp\web_protocol.py", line 418, in start
+    resp = await task
+  File "C:\Python35\lib\asyncio\futures.py", line 381, in __iter__
+    yield self  # This tells Task to wait for completion.
+  File "C:\Python35\lib\asyncio\tasks.py", line 310, in _wakeup
+    future.result()
+  File "C:\Python35\lib\asyncio\futures.py", line 294, in result
+    raise self._exception
+  File "C:\Python35\lib\asyncio\tasks.py", line 240, in _step
+    result = coro.send(None)
+  File "C:\Python35\lib\site-packages\aiohttp\web_app.py", line 458, in _handle
+    resp = await handler(request)
+  File "E:\ww\stuManage\stuManage\src\SimpleWebServer\web\controller\web.py", line 39, in index
+    weblog(logfile,ip, path)
+  File "E:\ww\stuManage\stuManage\src\SimpleWebServer\web\controller\web.py", line 29, in weblog
+    msg = ip + " "+path
+TypeError: Can't convert 'URL' object to str implicitly
+10.35.53.100 [04/Jun/2019:03:54:49 +0000] "GET / HTTP/1.1" 500 334 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36" - 2019-06-04 11:54:49,464
+Error handling request - 2019-06-04 11:55:31,708
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\aiohttp\web_protocol.py", line 418, in start
+    resp = await task
+  File "C:\Python35\lib\asyncio\futures.py", line 381, in __iter__
+    yield self  # This tells Task to wait for completion.
+  File "C:\Python35\lib\asyncio\tasks.py", line 310, in _wakeup
+    future.result()
+  File "C:\Python35\lib\asyncio\futures.py", line 294, in result
+    raise self._exception
+  File "C:\Python35\lib\asyncio\tasks.py", line 240, in _step
+    result = coro.send(None)
+  File "C:\Python35\lib\site-packages\aiohttp\web_app.py", line 458, in _handle
+    resp = await handler(request)
+  File "E:\ww\stuManage\stuManage\src\SimpleWebServer\web\controller\web.py", line 39, in index
+    weblog(logfile,ip, path)
+  File "E:\ww\stuManage\stuManage\src\SimpleWebServer\web\controller\web.py", line 29, in weblog
+    msg = ip + " "+path
+TypeError: Can't convert 'URL' object to str implicitly
+10.35.53.100 [04/Jun/2019:03:55:31 +0000] "GET / HTTP/1.1" 500 334 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36" - 2019-06-04 11:55:31,716
+Error handling request - 2019-06-04 11:56:53,972
+Traceback (most recent call last):
+  File "C:\Python35\lib\site-packages\aiohttp\web_protocol.py", line 418, in start
+    resp = await task
+  File "C:\Python35\lib\asyncio\futures.py", line 381, in __iter__
+    yield self  # This tells Task to wait for completion.
+  File "C:\Python35\lib\asyncio\tasks.py", line 310, in _wakeup
+    future.result()
+  File "C:\Python35\lib\asyncio\futures.py", line 294, in result
+    raise self._exception
+  File "C:\Python35\lib\asyncio\tasks.py", line 240, in _step
+    result = coro.send(None)
+  File "C:\Python35\lib\site-packages\aiohttp\web_app.py", line 458, in _handle
+    resp = await handler(request)
+  File "E:\ww\stuManage\stuManage\src\SimpleWebServer\web\controller\web.py", line 39, in index
+    await weblog(logfile,ip, path)
+  File "E:\ww\stuManage\stuManage\src\SimpleWebServer\web\controller\web.py", line 29, in weblog
+    msg = ip + " "+path
+TypeError: Can't convert 'URL' object to str implicitly
+10.35.53.100 [04/Jun/2019:03:56:53 +0000] "GET / HTTP/1.1" 500 334 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36" - 2019-06-04 11:56:53,979
