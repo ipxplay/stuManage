@@ -5,7 +5,7 @@ import os
 
 
 def weblog(weblogstr,ip,path):
-    logging.basicConfig(filename=weblogstr,format='%(message)s - %(asctime)s',level="DEBUG")
+    logging.basicConfig(format='%(message)s - %(asctime)s',level="DEBUG")
     msg = ip + " "+path
     logging.info(msg)
     

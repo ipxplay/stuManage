@@ -4,7 +4,10 @@ from SimpleWebServer.web.myjinja import html
 from urllib.parse import parse_qs
 from SimpleWebServer.util.txtutil import checkUserAndPwd
 from SimpleWebServer.web.model.model import Model
-import logging
+from SimpleWebServer.util.weblogging import weblog
+from SimpleWebServer.util.configutil import getPort
+import tkinter
+
 
 async def check(info):
 #     print(parse_qs(info.query_string))
@@ -22,21 +25,16 @@ async def check(info):
     else:
         pass
     return web.Response(body=html("msg.html",**locals()),content_type="text/html")
-    
 
-def weblog(weblogstr,ip,path):
-    logging.basicConfig(filename=weblogstr,format='%(message)s - %(asctime)s',level="DEBUG")
-    msg = ip + " "+path
-    logging.info(msg)
     
 async def index(request):
     data=""
     
-    ip = request._transport_peername[0]
-    path = request.message.url
+    ip = str(request._transport_peername[0])
+    path = str(request.message.url)
     logfile =os.path.abspath("../../logs/web.log") 
-    print(logfile)
-    await weblog(logfile,ip, path)
+#     print(logfile)
+    weblog(logfile,ip, path)
 
     with open("../views/login.html",encoding="utf-8") as f:
         data = f.read()
@@ -56,10 +54,12 @@ async def init(loop):
 #     path = ""
 #     weblog(logfile,ip, path)
     app.router.add_route('GET', '/', index)
-    app.router.add_route('GET', '/check', check)    
+    app.router.add_route('GET', '/check', check)
+    web.run_app(app)    
     runner = web.AppRunner(app)
     await runner.setup()
-    site = web.TCPSite(runner=runner,port=9000)
+    
+    site = web.TCPSite(runner=runner,port=getPort())
     await site.start()
 
 loop = asyncio.get_event_loop()

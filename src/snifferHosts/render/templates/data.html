@@ -1,0 +1,26 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="utf-8"></meta>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<td>姓名</td>
+				<td>系部</td>
+				<td>身高</td>
+				<td>体重</td>
+				<td>性别</td>
+			</tr>
+			{% for user in users %}
+			<tr>
+				<td>{{ user[0] | trim }}</td>
+				<td>{{ user[1] | trim }}</td>
+				<td>{{ user[2] | trim }}</td>
+				<td>{{ user[3] | trim }}</td>
+				<td>{{ user[4] | trim }}</td>
+			</tr>
+			{% endfor%}
+		</table>
+	</body>
+</html>

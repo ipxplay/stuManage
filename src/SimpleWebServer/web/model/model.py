@@ -6,7 +6,8 @@ class Model:
         pass
     
     def open(self):
-        self.conn = sqlite3.connect("user.db")
+        dbpath = r"E:\ww\stuManage\stuManage\src\SimpleWebServer\web\model\user.db"
+        self.conn = sqlite3.connect(dbpath)
         self.cursor = self.conn.cursor()
     
     def csvToDb(self):
