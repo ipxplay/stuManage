@@ -14,12 +14,7 @@ async def check(info):
     username = parse_qs(info.query_string)["username"][0]
     password = parse_qs(info.query_string)["password"][0]
     msg = "fail!"  
-#     if username=="wxit" and password=="wxit":
-#         msg = "success!"
-#     else:
-#         pass
     model = Model()
-#     if checkUserAndPwd(username, password):
     if model.checkUserSAndpwd(username, password):
         msg = "success!"
     else:
@@ -41,21 +36,26 @@ async def index(request):
     data1 = web.Response(body=data,content_type="text/html")
     return data1
 import os
+
+async def hello(request):
+    data = "hello world!"
+    data1 = web.Response(body=data,content_type="text/html")
+    return data1
+
+async def posthello(request):
+    data = "this is a post hello world!"
+    data1 = web.Response(body=data,content_type="text/html")
+    return data1
+
 async def init(loop):
     app = web.Application()
-#     infos = [r for r in app.router.resources()]
-#     print(type(infos))
-#     if infos:
-#         print(infos[0].split("\n\r")) 
-#     
-#     logfile = "../../logs/web.log"
-#     print(os.path.abspath(logfile))
-#     ip = ""
-#     path = ""
-#     weblog(logfile,ip, path)
     app.router.add_route('GET', '/', index)
     app.router.add_route('GET', '/check', check)
-    web.run_app(app)    
+    
+    app.router.add_route('GET', '/hello', hello)
+    app.router.add_route("POST", '/posthello', posthello)
+#     web.run_app(app)
+        
     runner = web.AppRunner(app)
     await runner.setup()
     

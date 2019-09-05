@@ -6,7 +6,7 @@ class Model:
         pass
     
     def open(self):
-        dbpath = r"E:\ww\stuManage\stuManage\src\SimpleWebServer\web\model\user.db"
+        dbpath = r"E:\stuManage\src\SimpleWebServer\web\model\user.db"
         self.conn = sqlite3.connect(dbpath)
         self.cursor = self.conn.cursor()
     
@@ -42,6 +42,6 @@ class Model:
         
 if __name__=="__main__":
     model = Model()
-    model.csvToDb()
+#     model.csvToDb()
     data = model.getAllUserInfo()
     print(data)
